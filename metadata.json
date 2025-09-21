@@ -1,0 +1,7 @@
+{
+  "name": " Artisan AI",
+  "description": "An AI-driven marketplace assistant to empower artisans by generating compelling stories, providing marketing support, and offering market insights to grow their digital presence and sales.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

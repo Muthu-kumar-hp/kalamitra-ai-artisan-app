@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artisan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'bg-primary': '#FFFFFF',
+              'bg-secondary': '#F9FAFB',
+              'text-primary': '#1F2937',
+              'text-secondary': '#6B7280',
+              'accent-primary': '#38BDF8',
+              'accent-secondary': '#E0F2FE',
+              'border-color': '#E5E7EB',
+              
+              // Ethnic Theme
+              'ethnic-bg': '#FFF8E1', // Light Cream
+              'ethnic-secondary': '#FFE0B2', // Light Peach
+              'ethnic-primary': '#E65100', // Deep Orange
+              'ethnic-text': '#4E342E', // Dark Brown
+              'ethnic-border': '#D7CCC8', // Light Brown-Gray
+
+              // Craftsman Theme
+              'craftsman-bg': '#2C3E50', // Midnight Blue
+              'craftsman-secondary': '#34495E', // Wet Asphalt
+              'craftsman-primary': '#1ABC9C', // Teal
+              'craftsman-text': '#ECF0F1', // Light Gray
+              'craftsman-border': '#4A6572', // Grayish Blue
+
+              // Handloom Theme
+              'handloom-bg': '#EAE7DC', // ECRU
+              'handloom-secondary': '#D8C3A5', // Beige
+              'handloom-primary': '#8E8D8A', // Gray
+              'handloom-text': '#4A4A48', // Dark Gray
+              'handloom-border': '#C0BDB6',
+
+              // Terracotta Theme
+              'terracotta-bg': '#FDEFE7', // Pale Pink
+              'terracotta-secondary': '#FAD4C0', // Light Apricot
+              'terracotta-primary': '#E57373', // Light Red
+              'terracotta-text': '#6D4C41', // Brown
+              'terracotta-border': '#E6BFB2',
+
+              // Tribal Art Theme
+              'tribal-bg': '#1A1A1A', // Off-black
+              'tribal-secondary': '#2C2C2C', // Dark Gray
+              'tribal-primary': '#E53935', // Bright Red
+              'tribal-text': '#FFFFFF', // White
+              'tribal-border': '#424242', // Medium Gray
+
+              // Madhubani Theme
+              'madhubani-bg': '#FFFFF0', // Ivory
+              'madhubani-secondary': '#FFFACD', // Lemon Chiffon
+              'madhubani-primary': '#FFD700', // Gold
+              'madhubani-text': '#5D4037', // Brown
+              'madhubani-border': '#F5E6A3',
+            }
+          }
+        },
+        plugins: [
+            function({ addVariant }) {
+                addVariant('ethnic', '.ethnic &');
+                addVariant('craftsman', '.craftsman &');
+                addVariant('handloom', '.handloom &');
+                addVariant('terracotta', '.terracotta &');
+                addVariant('tribal', '.tribal &');
+                addVariant('madhubani', '.madhubani &');
+            }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --bg-pattern-opacity: 0.15;
+        --bg-pattern-dynamic: none;
+      }
+      .ethnic, .handloom, .tribal, .madhubani {
+        background-image: var(--bg-pattern-dynamic);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <!-- Ethnic Patterns -->
+        <pattern id="pattern-ethnic-lines" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="scale(0.5)">
+            <path d="M 0 0 L 40 40 L 0 80 M 80 0 L 40 40 L 80 80" stroke="#E65100" stroke-width="1" fill="none" opacity="var(--bg-pattern-opacity)"></path>
+        </pattern>
+        <pattern id="pattern-ethnic-waves" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="scale(1)">
+            <path d="M 0 20 Q 10 10, 20 20 T 40 20" stroke="#E65100" stroke-width="0.5" fill="none" opacity="var(--bg-pattern-opacity)"></path>
+        </pattern>
+        
+        <!-- Handloom Patterns -->
+        <pattern id="pattern-handloom-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 0 5 L 20 5 M 5 0 L 5 20" stroke="#8E8D8A" stroke-width="0.5" fill="none" opacity="var(--bg-pattern-opacity)"></path>
+        </pattern>
+         <pattern id="pattern-handloom-stripes" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 5 0 L 5 20 M 15 0 L 15 20" stroke="#8E8D8A" stroke-width="0.5" fill="none" opacity="var(--bg-pattern-opacity)"></path>
+        </pattern>
+
+        <!-- Tribal Patterns -->
+        <pattern id="pattern-tribal-geometric" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 10 40 M 30 0 L 30 40 M 0 10 L 40 10 M 0 30 L 40 30" stroke="#E53935" stroke-width="0.5" fill="none" opacity="var(--bg-pattern-opacity)"></path>
+            <circle cx="20" cy="20" r="2" fill="#E53935" opacity="var(--bg-pattern-opacity)"></circle>
+        </pattern>
+        <pattern id="pattern-tribal-dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="1.5" fill="#E53935" opacity="var(--bg-pattern-opacity)"></circle>
+            <circle cx="20" cy="20" r="1.5" fill="#E53935" opacity="var(--bg-pattern-opacity)"></circle>
+        </pattern>
+        
+        <!-- Madhubani Patterns -->
+         <pattern id="pattern-madhubani-floral" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 30 0 C 15 15, 45 15, 30 30 C 15 45, 45 45, 30 60 C 15 45, 45 45, 30 30" stroke="#FFD700" stroke-width="1" fill="none" opacity="var(--bg-pattern-opacity)"></path>
+        </pattern>
+         <pattern id="pattern-madhubani-fish" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+            <path d="M 10 25 C 20 15, 30 15, 40 25 C 30 35, 20 35, 10 25 Z M 40 25 L 45 22 L 45 28 Z" stroke="#FFD700" stroke-width="1" fill="none" opacity="var(--bg-pattern-opacity)"></path>
+        </pattern>
+      </defs>
+    </svg>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
